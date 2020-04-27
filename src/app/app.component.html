@@ -7,7 +7,7 @@
     </div>
 
     <div class="to-do">
-      <h2>To do list</h2>
+      <h2>To do list: {{toDoList.length}}</h2>
       <ng-container *ngIf="toDoList.length > 0; else noTask">
         <ul *ngFor="let task of toDoList; let i = index">
           <li>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="done">
-      <h2>Done list</h2>
+      <h2>Done list: {{doneList.length}}</h2>
       <ng-container *ngIf="doneList.length > 0; else noTask">
         <ul *ngFor="let task of doneList; let i = index">
           <li>
