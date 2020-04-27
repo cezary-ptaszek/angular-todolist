@@ -16,7 +16,7 @@ export class AppComponent {
     if (this.task !== undefined) {
       this.toDoList.push(this.task);
     }
-    this.task = '';
+    this.task = undefined;
   }
 
   deleteDoList(index: number) {

@@ -8,23 +8,30 @@
 
     <div class="to-do">
       <h2>To do list</h2>
-      <ul *ngFor="let task of toDoList; let i = index">
-        <li>
-          {{task}}
-          <button class="button done-button" (click)="addDoneList(i)">Done</button>
-          <button class="button delete-button" (click)="deleteDoList(i)">Delete</button>
-        </li>
-      </ul>
+      <ng-container *ngIf="toDoList.length > 0; else noTask">
+        <ul *ngFor="let task of toDoList; let i = index">
+          <li>
+            {{task}}
+            <button class="button done-button" (click)="addDoneList(i)">Done</button>
+            <button class="button delete-button" (click)="deleteDoList(i)">Delete</button>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noTask>
+        <p>No tasks</p>
+      </ng-template>
     </div>
 
     <div class="done">
       <h2>Done list</h2>
-      <ul *ngFor="let task of doneList; let i = index">
-        <li>
-          {{task}}
-          <button class="button delete-button" (click)="deleteDoneList(i)">Delete</button>
-        </li>
-      </ul>
+      <ng-container *ngIf="doneList.length > 0; else noTask">
+        <ul *ngFor="let task of doneList; let i = index">
+          <li>
+            {{task}}
+            <button class="button delete-button" (click)="deleteDoneList(i)">Delete</button>
+          </li>
+        </ul>
+      </ng-container>
     </div>
   </div>
 </div>
